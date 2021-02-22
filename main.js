@@ -25,7 +25,6 @@ window.addEventListener('keydown', ({ code }) => {
                 temp.innerHTML = `${temperature} C <i class="fas fa-temperature-high"></i>`;
                 cityName.innerHTML = CITY;
                 summary.innerHTML = description;
-                console.log(data);
             })
             .catch(err => alert('Please enter a correct city name'));
     }
