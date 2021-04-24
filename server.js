@@ -1,17 +1,25 @@
-// const http = require('http');
-// const server = http.createServer((req, res) => { 
-//   console.log(req)
-// });
-// server.listen(3000, 'localhost');
-
-const fs = require('fs');
-if (!fs.existsSync('./msg', (error) => console.log(error))) {
-  fs.writeFile('./msg', (error) => console.log(error))
-}
-
 const http = require('http');
+const fs = require('fs');
+
 const server = http.createServer((req, res) => {
-  console.log('request received')
+  let returnedPage;
+  switch (req.url) {
+    case '/':
+      returnedPage = 'index.html';
+      break;
+    case '/about':
+      returnedPage = 'about.html';
+      break;
+    default:
+      returnedPage = 'index.html';
+      break;
+  }
+
+  res.setHeader('Content-Type', 'text/html');
+  fs.readFile(`./views/${returnedPage}`, (error, data) => {
+    res.end(data);
+  })
 });
 
 server.listen(3000, 'localhost');
+

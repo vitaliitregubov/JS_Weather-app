@@ -1,7 +1,5 @@
-const techs = ['html / css', 'js', 'ts', 'vue.js', 'sass', 'node.js'];
-const projects = ['Vue.js SPA', 'Node.js Blog'];
+const techs = ['js', 'ts', 'node.js'];
 
 module.exports = {
-  techs,
-  projects
+  techs
 }
