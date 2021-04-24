@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
+app.listen(3000);
+app.use(express.static('public'));
+
 app.set('view engine', 'ejs');
 
-app.listen(3000);
-
 app.get('/', (req, res) => {
-  res.render('index', { name: 'Vitali', todos: [] });
+  res.render('index', { name: 'Vitalii', todos: [] });
 });
 
 app.get('/about', (req, res) => {
@@ -13,7 +14,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/about-us', (req, res) => {
-  res.redirect('about');
+  res.redirect('/about');
 });
 
 app.use((req, res) => {
