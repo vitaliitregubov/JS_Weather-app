@@ -19,10 +19,10 @@
     </article>
   <% }) %>
 
-  <form action="">
+  <form action="/blogs" method="POST">
     <label for="postName">Name of your post</label>
-    <input type="text" name="postName" id="postName" required>
-    <textarea placeholder="Type your thoughts here..." name="postText" id="postText" cols="30" rows="10" required></textarea>
+    <input type="text" name="title" id="postName" required>
+    <textarea placeholder="Type your thoughts here..." name="text" id="postText" cols="30" rows="10" required></textarea>
     <input type="submit" value="Submit" />
   </form>
 
