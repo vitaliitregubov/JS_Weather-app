@@ -12,11 +12,13 @@
 
   <%- include('./partials/header.ejs') %>
 
-  <% todos.length && todos.map(({ title, text }) => { %>
-    <article>
-      <h3><%= title %></h3>
-      <p><%= text %></p>
-    </article>
+  <% blogs.length && blogs.map(({ title, text, _id }) => { %>
+    <a href="/blogs/<%= _id %>">
+      <article>
+        <h3><%= title %></h3>
+        <p><%= text %></p>
+      </article>
+    </a>
   <% }) %>
 
   <form action="/blogs" method="POST">
