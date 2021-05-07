@@ -1,0 +1,8 @@
+
+  <h1>Hello <%= user %></h1>
+  <h3>Here are some tasks for you:</h3>
+  <ul>
+    <% tasks.map(task => { %>
+      <li><%= task %></li>
+    <% }) %>
+  </ul>
