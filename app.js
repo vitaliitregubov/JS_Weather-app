@@ -1,19 +1,23 @@
 const express = require('express');
-const ejs = require('ejs');
-const expressLayouts = require('express-ejs-layouts');
+const app = express();
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
-require('dotenv').config();
-
-const userRouter = require('./server/routes/user');
-
-const app = express();
-app.listen(3000);
+const userRoutes = require('./routes/userRoutes');
+const expressLayouts = require('express-ejs-layouts');
 
 app.set('view engine', 'ejs');
-app.use(expressLayouts);
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(expressLayouts);
 app.use(express.static('public'));
-app.use('/users', userRouter);
+app.use(userRoutes);
+
+const jwt = require('jsonwebtoken');
+
+app.get('/api', (req, res) => {
+  res.json({
+    msg: "Welcome!"
+  })
+});
+
+app.listen(3000);
 
