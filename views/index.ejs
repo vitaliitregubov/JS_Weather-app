@@ -1,1 +1,28 @@
-<h1>Welcome <%= userName %></h1>
+<h3 class="mb-5">Users management page</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col" class="text-end">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.map(({ id, name, email, birthDate }) => { %>
+      <tr>
+        <th scope="row"><%= id %></th>
+        <td><%= name %></td>
+        <td><%= email %></td>
+        <td><%= birthDate %></td>
+        <td class="text-end">
+          <a href="#" type="button" class="btn btn-dark btn-small"><i class="bi bi-eye"></i>&nbsp; View</a>
+          <a href="#" type="button" class="btn btn-dark btn-small"><i class="bi bi-pencil"></i>&nbsp; Edit</a>
+          <a href="#" type="button" class="btn btn-dark btn-small"><i class="bi bi-user-x"></i>&nbsp; Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

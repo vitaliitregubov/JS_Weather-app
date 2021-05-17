@@ -14,5 +14,22 @@ app.use(expressLayouts);
 app.use(homeRoute);
 app.use('/api', apiRoute);
 
-app.listen(3000);
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "usersdb",
+  password: "0000"
+});
+
+
+app.listen(3000, () => {
+  connection.connect(function(err){
+    if (err) {
+      return console.error("Ошибка: " + err.message);
+    }
+    else{
+      console.log("Подключение к серверу MySQL успешно установлено");
+    }
+  })
+});
 
