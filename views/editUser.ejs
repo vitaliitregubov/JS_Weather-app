@@ -1,0 +1,21 @@
+<h2>Edit user</h2>
+
+<div class="row">
+  <form method="POST" action="/edit-user/<%= user.id %>" class="col-4 offset-4">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" name="name" class="form-control" id="name" value="<%= user.name %>" required />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" name="email" class="form-control" id="email" value="<%= user.email %>" required />
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone:</label>
+      <input type="text" name="phone" class="form-control" id="phone" value="<%= user.birthDate %>" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/" class="btn btn-grey">Cancel</a>
+  </form>
+</div>
+

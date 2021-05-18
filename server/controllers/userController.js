@@ -52,7 +52,7 @@ exports.userDetails = (req, res) => {
 
 exports.form = (req, res) => {
   res.render('addUser', { alert: '' });
-}
+};
 
 exports.addUser = (req, res) => {
   const { name, email, phone } = req.body;
@@ -64,5 +64,35 @@ exports.addUser = (req, res) => {
       res.render('addUser', { alert: 'Created successfully' });
     }
   });
-}
+};
+
+exports.editUser = (req, res) => {
+  connection.query("SELECT * FROM users WHERE id = ?", [req.params.id], (error, results) => {
+    if(error) {
+      console.log(error);
+      return;
+    } else {
+      res.render('editUser', { user: results[0] });
+    }
+  });
+};
+
+exports.updateUser = (req, res) => {
+  const { name, email, phone } = req.body;
+  connection.query("UPDATE users SET name = ?, email = ?, birthDate = ? WHERE id = ?", [name, email, phone, req.params.id], error => {
+    if(error) {
+      console.log(error);
+      return;
+    } else {
+      connection.query("SELECT * FROM users", (err, results) => {
+        if(err) {
+          console.log(err);
+          return;
+        } else {
+          res.render('index', { users: results });
+        }
+      })
+    }
+  });
+};
 
