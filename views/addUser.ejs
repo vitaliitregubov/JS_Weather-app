@@ -1,0 +1,26 @@
+<h2 class="text-center">Create new user</h2>
+
+<div class="row">
+  <form method="POST" action="/add-user" class="col-4 offset-4">
+    <% if(alert) { %>
+      <div class="alert alert-success  alert-dismissible fade show" role="alert">
+        <%= alert %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% } %>
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" name="name" class="form-control" id="name" required />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" name="email" class="form-control" id="email" required />
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone:</label>
+      <input type="number" name="phone" class="form-control" id="phone" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

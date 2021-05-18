@@ -1,5 +1,9 @@
 <h3 class="mb-5">Users management page</h3>
 
+<div class="mb-4">
+  <a href="/add-user" class="btn btn-primary">Add new user</a>
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -11,18 +15,24 @@
     </tr>
   </thead>
   <tbody>
-    <% users.map(({ id, name, email, birthDate }) => { %>
+    <% if(!users.length) { %>
       <tr>
-        <th scope="row"><%= id %></th>
-        <td><%= name %></td>
-        <td><%= email %></td>
-        <td><%= birthDate %></td>
-        <td class="text-end">
-          <a href="#" type="button" class="btn btn-dark btn-small"><i class="bi bi-eye"></i>&nbsp; View</a>
-          <a href="#" type="button" class="btn btn-dark btn-small"><i class="bi bi-pencil"></i>&nbsp; Edit</a>
-          <a href="#" type="button" class="btn btn-dark btn-small"><i class="bi bi-user-x"></i>&nbsp; Delete</a>
-        </td>
+        <td colspan="5">No results found...</td>
       </tr>
-    <% }) %>
+    <% } else { %>
+      <% users.map(({ id, name, email, birthDate }) => { %>
+        <tr>
+          <th scope="row"><%= id %></th>
+          <td><%= name %></td>
+          <td><%= email %></td>
+          <td><%= birthDate %></td>
+          <td class="text-end">
+            <a href="<%= id %>" type="button" class="btn btn-dark btn-small"><i class="bi bi-eye"></i>&nbsp; View</a>
+            <a href="#" type="button" class="btn btn-dark btn-small"><i class="bi bi-pencil"></i>&nbsp; Edit</a>
+            <a href="#" type="button" class="btn btn-dark btn-small"><i class="bi bi-user-x"></i>&nbsp; Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    <% } %>
   </tbody>
 </table>
