@@ -27,9 +27,9 @@
           <td><%= email %></td>
           <td><%= birthDate %></td>
           <td class="text-end">
-            <a href="<%= id %>" type="button" class="btn btn-dark btn-small"><i class="bi bi-eye"></i>&nbsp; View</a>
-            <a href="/edit-user/<%= id %>" type="button" class="btn btn-dark btn-small"><i class="bi bi-pencil"></i>&nbsp; Edit</a>
-            <a href="#" type="button" class="btn btn-dark btn-small"><i class="bi bi-user-x"></i>&nbsp; Delete</a>
+            <a href="<%= id %>" type="button" class="btn btn-small"><i class="bi bi-eye"></i>&nbsp; View</a>
+            <a href="/edit-user/<%= id %>" type="button" class="btn btn-small"><i class="bi bi-pencil"></i>&nbsp; Edit</a>
+            <a href="/delete-user/<%= id %>" type="button" class="btn btn-small text-danger"><i class="bi bi-trash"></i>&nbsp; Delete</a>
           </td>
         </tr>
       <% }) %>

@@ -84,15 +84,19 @@ exports.updateUser = (req, res) => {
       console.log(error);
       return;
     } else {
-      connection.query("SELECT * FROM users", (err, results) => {
-        if(err) {
-          console.log(err);
-          return;
-        } else {
-          res.render('index', { users: results });
-        }
-      })
+      res.redirect('/');
     }
   });
+};
+
+exports.deleteUser = (req, res) => {
+  connection.query("DELETE FROM users WHERE id = ?", [req.params.id], error => {
+    if(error) {
+      console.log(error);
+      return;
+    } else {
+      res.redirect('/');
+    }
+  })
 };
 
